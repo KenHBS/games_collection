@@ -1,0 +1,717 @@
+Players at the table: Pieter, David, Shawn, Sebastian
+Let the games begin!
+
+Starting round # 1 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2]
+David: [B-3, C-3, A-1, B-4, D-4]
+Shawn: [A-2, D-1, B-1, A-3, C-1]
+Sebastian: [E-1, D-3, B-2, E-4, D-2]
+Pieter can ask for 7 cards
+Pieter asks Sebastian: C-1
+Sebastian does not have C-1
+Next round it will be Sebastian's turn
+
+Starting round # 2 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2]
+David: [B-3, C-3, A-1, B-4, D-4]
+Shawn: [A-2, D-1, B-1, A-3, C-1]
+Sebastian: [E-1, D-3, B-2, E-4, D-2]
+Sebastian can ask for 7 cards
+Sebastian asks Pieter: B-4
+Pieter does not have B-4
+Next round it will be Pieter's turn
+
+Starting round # 3 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2]
+David: [B-3, C-3, A-1, B-4, D-4]
+Shawn: [A-2, D-1, B-1, A-3, C-1]
+Sebastian: [E-1, D-3, B-2, E-4, D-2]
+Pieter can ask for 7 cards
+Pieter asks Shawn: A-2
+Pieter gets A-2 from Shawn
+Next round it will be Pieter's turn
+
+Starting round # 4 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2]
+David: [B-3, C-3, A-1, B-4, D-4]
+Shawn: [D-1, B-1, A-3, C-1]
+Sebastian: [E-1, D-3, B-2, E-4, D-2]
+Pieter can ask for 6 cards
+Pieter asks David: A-1
+Pieter gets A-1 from David
+Next round it will be Pieter's turn
+
+Starting round # 5 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1]
+David: [B-3, C-3, B-4, D-4]
+Shawn: [D-1, B-1, A-3, C-1]
+Sebastian: [E-1, D-3, B-2, E-4, D-2]
+Pieter can ask for 5 cards
+Pieter asks Shawn: C-3
+Shawn does not have C-3
+Next round it will be Shawn's turn
+
+Starting round # 6 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1]
+David: [B-3, C-3, B-4, D-4]
+Shawn: [D-1, B-1, A-3, C-1]
+Sebastian: [E-1, D-3, B-2, E-4, D-2]
+Shawn can ask for 12 cards
+Shawn asks Sebastian: D-3
+Shawn gets D-3 from Sebastian
+Next round it will be Shawn's turn
+
+Starting round # 7 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1]
+David: [B-3, C-3, B-4, D-4]
+Shawn: [D-1, B-1, A-3, C-1, D-3]
+Sebastian: [E-1, B-2, E-4, D-2]
+Shawn can ask for 11 cards
+Shawn asks David: C-3
+Shawn gets C-3 from David
+Next round it will be Shawn's turn
+
+Starting round # 8 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1]
+David: [B-3, B-4, D-4]
+Shawn: [D-1, B-1, A-3, C-1, D-3, C-3]
+Sebastian: [E-1, B-2, E-4, D-2]
+Shawn can ask for 10 cards
+Shawn asks Pieter: B-2
+Pieter does not have B-2
+Next round it will be Pieter's turn
+
+Starting round # 9 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1]
+David: [B-3, B-4, D-4]
+Shawn: [D-1, B-1, A-3, C-1, D-3, C-3]
+Sebastian: [E-1, B-2, E-4, D-2]
+Pieter can ask for 5 cards
+Pieter asks Sebastian: A-3
+Sebastian does not have A-3
+Next round it will be Sebastian's turn
+
+Starting round # 10 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1]
+David: [B-3, B-4, D-4]
+Shawn: [D-1, B-1, A-3, C-1, D-3, C-3]
+Sebastian: [E-1, B-2, E-4, D-2]
+Sebastian can ask for 8 cards
+Sebastian asks David: B-1
+David does not have B-1
+Next round it will be David's turn
+
+Starting round # 11 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1]
+David: [B-3, B-4, D-4]
+Shawn: [D-1, B-1, A-3, C-1, D-3, C-3]
+Sebastian: [E-1, B-2, E-4, D-2]
+David can ask for 5 cards
+David asks Pieter: D-3
+Pieter does not have D-3
+Next round it will be Pieter's turn
+
+Starting round # 12 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1]
+David: [B-3, B-4, D-4]
+Shawn: [D-1, B-1, A-3, C-1, D-3, C-3]
+Sebastian: [E-1, B-2, E-4, D-2]
+Pieter can ask for 5 cards
+Pieter asks Sebastian: E-1
+Pieter gets E-1 from Sebastian
+Next round it will be Pieter's turn
+
+Starting round # 13 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1, E-1]
+David: [B-3, B-4, D-4]
+Shawn: [D-1, B-1, A-3, C-1, D-3, C-3]
+Sebastian: [B-2, E-4, D-2]
+Pieter can ask for 4 cards
+Pieter asks Sebastian: C-3
+Sebastian does not have C-3
+Next round it will be Sebastian's turn
+
+Starting round # 14 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1, E-1]
+David: [B-3, B-4, D-4]
+Shawn: [D-1, B-1, A-3, C-1, D-3, C-3]
+Sebastian: [B-2, E-4, D-2]
+Sebastian can ask for 9 cards
+Sebastian asks David: D-1
+David does not have D-1
+Next round it will be David's turn
+
+Starting round # 15 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1, E-1]
+David: [B-3, B-4, D-4]
+Shawn: [D-1, B-1, A-3, C-1, D-3, C-3]
+Sebastian: [B-2, E-4, D-2]
+David can ask for 5 cards
+David asks Pieter: D-1
+Pieter does not have D-1
+Next round it will be Pieter's turn
+
+Starting round # 16 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1, E-1]
+David: [B-3, B-4, D-4]
+Shawn: [D-1, B-1, A-3, C-1, D-3, C-3]
+Sebastian: [B-2, E-4, D-2]
+Pieter can ask for 4 cards
+Pieter asks Shawn: C-3
+Pieter gets C-3 from Shawn
+Next round it will be Pieter's turn
+
+Starting round # 17 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, D-4]
+Shawn: [D-1, B-1, A-3, C-1, D-3]
+Sebastian: [B-2, E-4, D-2]
+Pieter can ask for 3 cards
+Pieter asks David: A-3
+David does not have A-3
+Next round it will be David's turn
+
+Starting round # 18 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, D-4]
+Shawn: [D-1, B-1, A-3, C-1, D-3]
+Sebastian: [B-2, E-4, D-2]
+David can ask for 5 cards
+David asks Pieter: D-2
+Pieter does not have D-2
+Next round it will be Pieter's turn
+
+Starting round # 19 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, D-4]
+Shawn: [D-1, B-1, A-3, C-1, D-3]
+Sebastian: [B-2, E-4, D-2]
+Pieter can ask for 3 cards
+Pieter asks David: E-4
+David does not have E-4
+Next round it will be David's turn
+
+Starting round # 20 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, D-4]
+Shawn: [D-1, B-1, A-3, C-1, D-3]
+Sebastian: [B-2, E-4, D-2]
+David can ask for 5 cards
+David asks Pieter: D-3
+Pieter does not have D-3
+Next round it will be Pieter's turn
+
+Starting round # 21 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, D-4]
+Shawn: [D-1, B-1, A-3, C-1, D-3]
+Sebastian: [B-2, E-4, D-2]
+Pieter can ask for 3 cards
+Pieter asks David: A-3
+David does not have A-3
+Next round it will be David's turn
+
+Starting round # 22 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, D-4]
+Shawn: [D-1, B-1, A-3, C-1, D-3]
+Sebastian: [B-2, E-4, D-2]
+David can ask for 5 cards
+David asks Sebastian: B-2
+David gets B-2 from Sebastian
+Next round it will be David's turn
+
+Starting round # 23 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, D-4, B-2]
+Shawn: [D-1, B-1, A-3, C-1, D-3]
+Sebastian: [E-4, D-2]
+David can ask for 4 cards
+David asks Sebastian: D-2
+David gets D-2 from Sebastian
+Next round it will be David's turn
+
+Starting round # 24 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, D-4, B-2, D-2]
+Shawn: [D-1, B-1, A-3, C-1, D-3]
+Sebastian: [E-4]
+David can ask for 3 cards
+David asks Pieter: D-3
+Pieter does not have D-3
+Next round it will be Pieter's turn
+
+Starting round # 25 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, D-4, B-2, D-2]
+Shawn: [D-1, B-1, A-3, C-1, D-3]
+Sebastian: [E-4]
+Pieter can ask for 3 cards
+Pieter asks David: C-1
+David does not have C-1
+Next round it will be David's turn
+
+Starting round # 26 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, D-4, B-2, D-2]
+Shawn: [D-1, B-1, A-3, C-1, D-3]
+Sebastian: [E-4]
+David can ask for 3 cards
+David asks Shawn: D-3
+David gets D-3 from Shawn
+Next round it will be David's turn
+
+Starting round # 27 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, D-4, B-2, D-2, D-3]
+Shawn: [D-1, B-1, A-3, C-1]
+Sebastian: [E-4]
+David can ask for 2 cards
+David asks Sebastian: B-1
+Sebastian does not have B-1
+Next round it will be Sebastian's turn
+
+Starting round # 28 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, D-4, B-2, D-2, D-3]
+Shawn: [D-1, B-1, A-3, C-1]
+Sebastian: [E-4]
+Sebastian can ask for 3 cards
+Sebastian asks Shawn: E-2
+Shawn does not have E-2
+Next round it will be Shawn's turn
+
+Starting round # 29 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, D-4, B-2, D-2, D-3]
+Shawn: [D-1, B-1, A-3, C-1]
+Sebastian: [E-4]
+Shawn can ask for 12 cards
+Shawn asks Sebastian: C-3
+Sebastian does not have C-3
+Next round it will be Sebastian's turn
+
+Starting round # 30 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, D-4, B-2, D-2, D-3]
+Shawn: [D-1, B-1, A-3, C-1]
+Sebastian: [E-4]
+Sebastian can ask for 3 cards
+Sebastian asks Shawn: E-3
+Shawn does not have E-3
+Next round it will be Shawn's turn
+
+Starting round # 31 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, D-4, B-2, D-2, D-3]
+Shawn: [D-1, B-1, A-3, C-1]
+Sebastian: [E-4]
+Shawn can ask for 12 cards
+Shawn asks Sebastian: C-4
+Sebastian does not have C-4
+Next round it will be Sebastian's turn
+
+Starting round # 32 ...
+Pieter: [A-4, E-3, C-4, E-2, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, D-4, B-2, D-2, D-3]
+Shawn: [D-1, B-1, A-3, C-1]
+Sebastian: [E-4]
+Sebastian can ask for 3 cards
+Sebastian asks Pieter: E-3
+Sebastian gets E-3 from Pieter
+Next round it will be Sebastian's turn
+
+Starting round # 33 ...
+Pieter: [A-4, C-4, E-2, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, D-4, B-2, D-2, D-3]
+Shawn: [D-1, B-1, A-3, C-1]
+Sebastian: [E-4, E-3]
+Sebastian can ask for 2 cards
+Sebastian asks Pieter: E-2
+Sebastian gets E-2 from Pieter
+Next round it will be Sebastian's turn
+
+Starting round # 34 ...
+Pieter: [A-4, C-4, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, D-4, B-2, D-2, D-3]
+Shawn: [D-1, B-1, A-3, C-1]
+Sebastian: [E-4, E-3, E-2]
+Sebastian can ask for 1 cards
+Sebastian asks David: E-1
+David does not have E-1
+Next round it will be David's turn
+
+Starting round # 35 ...
+Pieter: [A-4, C-4, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, D-4, B-2, D-2, D-3]
+Shawn: [D-1, B-1, A-3, C-1]
+Sebastian: [E-4, E-3, E-2]
+David can ask for 2 cards
+David asks Shawn: D-1
+David gets D-1 from Shawn
+David has a quartet with D!
+David is putting down [D-4, D-2, D-3, D-1]
+Next round it will be David's turn
+
+Starting round # 36 ...
+Pieter: [A-4, C-4, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, A-3, C-1]
+Sebastian: [E-4, E-3, E-2]
+David can ask for 1 cards
+David asks Sebastian: B-1
+Sebastian does not have B-1
+Next round it will be Sebastian's turn
+
+Starting round # 37 ...
+Pieter: [A-4, C-4, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, A-3, C-1]
+Sebastian: [E-4, E-3, E-2]
+Sebastian can ask for 1 cards
+Sebastian asks David: E-1
+David does not have E-1
+Next round it will be David's turn
+
+Starting round # 38 ...
+Pieter: [A-4, C-4, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, A-3, C-1]
+Sebastian: [E-4, E-3, E-2]
+David can ask for 1 cards
+David asks Sebastian: B-1
+Sebastian does not have B-1
+Next round it will be Sebastian's turn
+
+Starting round # 39 ...
+Pieter: [A-4, C-4, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, A-3, C-1]
+Sebastian: [E-4, E-3, E-2]
+Sebastian can ask for 1 cards
+Sebastian asks David: E-1
+David does not have E-1
+Next round it will be David's turn
+
+Starting round # 40 ...
+Pieter: [A-4, C-4, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, A-3, C-1]
+Sebastian: [E-4, E-3, E-2]
+David can ask for 1 cards
+David asks Pieter: B-1
+Pieter does not have B-1
+Next round it will be Pieter's turn
+
+Starting round # 41 ...
+Pieter: [A-4, C-4, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, A-3, C-1]
+Sebastian: [E-4, E-3, E-2]
+Pieter can ask for 5 cards
+Pieter asks Shawn: E-4
+Shawn does not have E-4
+Next round it will be Shawn's turn
+
+Starting round # 42 ...
+Pieter: [A-4, C-4, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, A-3, C-1]
+Sebastian: [E-4, E-3, E-2]
+Shawn can ask for 9 cards
+Shawn asks Sebastian: C-2
+Sebastian does not have C-2
+Next round it will be Sebastian's turn
+
+Starting round # 43 ...
+Pieter: [A-4, C-4, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, A-3, C-1]
+Sebastian: [E-4, E-3, E-2]
+Sebastian can ask for 1 cards
+Sebastian asks David: E-1
+David does not have E-1
+Next round it will be David's turn
+
+Starting round # 44 ...
+Pieter: [A-4, C-4, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, A-3, C-1]
+Sebastian: [E-4, E-3, E-2]
+David can ask for 1 cards
+David asks Pieter: B-1
+Pieter does not have B-1
+Next round it will be Pieter's turn
+
+Starting round # 45 ...
+Pieter: [A-4, C-4, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, A-3, C-1]
+Sebastian: [E-4, E-3, E-2]
+Pieter can ask for 5 cards
+Pieter asks David: E-4
+David does not have E-4
+Next round it will be David's turn
+
+Starting round # 46 ...
+Pieter: [A-4, C-4, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, A-3, C-1]
+Sebastian: [E-4, E-3, E-2]
+David can ask for 1 cards
+David asks Sebastian: B-1
+Sebastian does not have B-1
+Next round it will be Sebastian's turn
+
+Starting round # 47 ...
+Pieter: [A-4, C-4, C-2, A-2, A-1, E-1, C-3]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, A-3, C-1]
+Sebastian: [E-4, E-3, E-2]
+Sebastian can ask for 1 cards
+Sebastian asks Pieter: E-1
+Sebastian gets E-1 from Pieter
+Sebastian has a quartet with E!
+Sebastian is putting down [E-4, E-3, E-2, E-1]
+Next round it will be Shawn's turn
+
+Starting round # 48 ...
+Pieter: [A-4, C-4, C-2, A-2, A-1, C-3]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, A-3, C-1]
+Sebastian: []
+Shawn can ask for 9 cards
+Shawn asks Pieter: C-3
+Shawn gets C-3 from Pieter
+Next round it will be Shawn's turn
+
+Starting round # 49 ...
+Pieter: [A-4, C-4, C-2, A-2, A-1]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, A-3, C-1, C-3]
+Sebastian: []
+Shawn can ask for 8 cards
+Shawn asks Pieter: A-2
+Shawn gets A-2 from Pieter
+Next round it will be Shawn's turn
+
+Starting round # 50 ...
+Pieter: [A-4, C-4, C-2, A-1]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, A-3, C-1, C-3, A-2]
+Sebastian: []
+Shawn can ask for 7 cards
+Shawn asks Pieter: C-2
+Shawn gets C-2 from Pieter
+Next round it will be Shawn's turn
+
+Starting round # 51 ...
+Pieter: [A-4, C-4, A-1]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, A-3, C-1, C-3, A-2, C-2]
+Sebastian: []
+Shawn can ask for 6 cards
+Shawn asks Pieter: A-4
+Shawn gets A-4 from Pieter
+Next round it will be Shawn's turn
+
+Starting round # 52 ...
+Pieter: [C-4, A-1]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, A-3, C-1, C-3, A-2, C-2, A-4]
+Sebastian: []
+Shawn can ask for 5 cards
+Shawn asks Pieter: B-3
+Pieter does not have B-3
+Next round it will be Pieter's turn
+
+Starting round # 53 ...
+Pieter: [C-4, A-1]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, A-3, C-1, C-3, A-2, C-2, A-4]
+Sebastian: []
+Pieter can ask for 6 cards
+Pieter asks Shawn: C-3
+Pieter gets C-3 from Shawn
+Next round it will be Pieter's turn
+
+Starting round # 54 ...
+Pieter: [C-4, A-1, C-3]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, A-3, C-1, A-2, C-2, A-4]
+Sebastian: []
+Pieter can ask for 5 cards
+Pieter asks David: C-1
+David does not have C-1
+Next round it will be David's turn
+
+Starting round # 55 ...
+Pieter: [C-4, A-1, C-3]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, A-3, C-1, A-2, C-2, A-4]
+Sebastian: []
+David can ask for 1 cards
+David asks Pieter: B-1
+Pieter does not have B-1
+Next round it will be Pieter's turn
+
+Starting round # 56 ...
+Pieter: [C-4, A-1, C-3]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, A-3, C-1, A-2, C-2, A-4]
+Sebastian: []
+Pieter can ask for 5 cards
+Pieter asks David: A-3
+David does not have A-3
+Next round it will be David's turn
+
+Starting round # 57 ...
+Pieter: [C-4, A-1, C-3]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, A-3, C-1, A-2, C-2, A-4]
+Sebastian: []
+David can ask for 1 cards
+David asks Pieter: B-1
+Pieter does not have B-1
+Next round it will be Pieter's turn
+
+Starting round # 58 ...
+Pieter: [C-4, A-1, C-3]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, A-3, C-1, A-2, C-2, A-4]
+Sebastian: []
+Pieter can ask for 5 cards
+Pieter asks David: A-3
+David does not have A-3
+Next round it will be David's turn
+
+Starting round # 59 ...
+Pieter: [C-4, A-1, C-3]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, A-3, C-1, A-2, C-2, A-4]
+Sebastian: []
+David can ask for 1 cards
+David asks Pieter: B-1
+Pieter does not have B-1
+Next round it will be Pieter's turn
+
+Starting round # 60 ...
+Pieter: [C-4, A-1, C-3]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, A-3, C-1, A-2, C-2, A-4]
+Sebastian: []
+Pieter can ask for 5 cards
+Pieter asks Shawn: A-3
+Pieter gets A-3 from Shawn
+Next round it will be Pieter's turn
+
+Starting round # 61 ...
+Pieter: [C-4, A-1, C-3, A-3]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, C-1, A-2, C-2, A-4]
+Sebastian: []
+Pieter can ask for 4 cards
+Pieter asks David: C-1
+David does not have C-1
+Next round it will be David's turn
+
+Starting round # 62 ...
+Pieter: [C-4, A-1, C-3, A-3]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, C-1, A-2, C-2, A-4]
+Sebastian: []
+David can ask for 1 cards
+David asks Pieter: B-1
+Pieter does not have B-1
+Next round it will be Pieter's turn
+
+Starting round # 63 ...
+Pieter: [C-4, A-1, C-3, A-3]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, C-1, A-2, C-2, A-4]
+Sebastian: []
+Pieter can ask for 4 cards
+Pieter asks David: A-2
+David does not have A-2
+Next round it will be David's turn
+
+Starting round # 64 ...
+Pieter: [C-4, A-1, C-3, A-3]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, C-1, A-2, C-2, A-4]
+Sebastian: []
+David can ask for 1 cards
+David asks Pieter: B-1
+Pieter does not have B-1
+Next round it will be Pieter's turn
+
+Starting round # 65 ...
+Pieter: [C-4, A-1, C-3, A-3]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, C-1, A-2, C-2, A-4]
+Sebastian: []
+Pieter can ask for 4 cards
+Pieter asks Shawn: A-4
+Pieter gets A-4 from Shawn
+Next round it will be Pieter's turn
+
+Starting round # 66 ...
+Pieter: [C-4, A-1, C-3, A-3, A-4]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, C-1, A-2, C-2]
+Sebastian: []
+Pieter can ask for 3 cards
+Pieter asks David: C-1
+David does not have C-1
+Next round it will be David's turn
+
+Starting round # 67 ...
+Pieter: [C-4, A-1, C-3, A-3, A-4]
+David: [B-3, B-4, B-2]
+Shawn: [B-1, C-1, A-2, C-2]
+Sebastian: []
+David can ask for 1 cards
+David asks Shawn: B-1
+David gets B-1 from Shawn
+David has a quartet with B!
+David is putting down [B-3, B-4, B-2, B-1]
+Next round it will be Pieter's turn
+
+Starting round # 68 ...
+Pieter: [C-4, A-1, C-3, A-3, A-4]
+David: []
+Shawn: [C-1, A-2, C-2]
+Sebastian: []
+Pieter can ask for 3 cards
+Pieter asks Shawn: C-2
+Pieter gets C-2 from Shawn
+Next round it will be Pieter's turn
+
+Starting round # 69 ...
+Pieter: [C-4, A-1, C-3, A-3, A-4, C-2]
+David: []
+Shawn: [C-1, A-2]
+Sebastian: []
+Pieter can ask for 2 cards
+Pieter asks Shawn: C-1
+Pieter gets C-1 from Shawn
+Pieter has a quartet with C!
+Pieter is putting down [C-4, C-3, C-2, C-1]
+Next round it will be Pieter's turn
+
+Starting round # 70 ...
+Pieter: [A-1, A-3, A-4]
+David: []
+Shawn: [A-2]
+Sebastian: []
+Pieter can ask for 1 cards
+Pieter asks Shawn: A-2
+Pieter gets A-2 from Shawn
+Pieter has a quartet with A!
+Pieter is putting down [A-1, A-3, A-4, A-2]
+
+The game finished after 71 rounds!
+Pieter has 2 quartets
+David has 2 quartets
+Shawn has 0 quartets
+Sebastian has 1 quartets

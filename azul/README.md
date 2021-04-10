@@ -4,14 +4,10 @@ When we bought it we were one player too many. Is it weird to volunteer for skip
 
 I did end up playing this game quite a bit and it's a fantastic game! The design of this game is just terrific. Also, the rules are not very complex, which makes it a fun programming project.
 
-## To do list
-Implement the following structure:
-- Create class `Tile`
-- Create class `PlayerBoard`
-- Create class `Plate`
-- Create class `InnerRoundTileArea`
-- Create class `InnerRoundMinusPoints`
+## Intended structure
+I found this code I wrote a while ago. I never finished it and the general structure of the code is not great.
 
+The intended structure of the classes is:
 - Each `Player` has a `Playerboard`
 - Each `PlayerBoard` has
     - `InnerRoundTileArea`
@@ -26,11 +22,3 @@ Implement the following structure:
 - Each `Player` can interact with `SharedBoard`
 - Each `Player` can interact with their `PlayerBoard`
 - Each `Player` manages the interactions between the attributes on their `PlayerBoard`
-
-Add a visual explanation to documentation of
-- `PlayerBoard`
-- `Plate`
-- `Tile`
-- `InnerroundTileArea`
-- `InnerRoundMinusPoints`
-- `SharedBoard`

@@ -6,7 +6,7 @@ from typing import Any, List, NamedTuple, Tuple
 
 
 logging.basicConfig(level=10, format="%(message)s")
-handler = logging.FileHandler(filename="quartet_clever.log", mode="w")
+handler = logging.FileHandler(filename="logs/clever.log", mode="w")
 LOGGER = logging.getLogger("quartet_logger")
 LOGGER.addHandler(handler)
 

@@ -3,8 +3,17 @@ import pandas as pd
 from random import shuffle
 from string import ascii_uppercase as letters
 
+from typing import Tuple
+
 
 class SharedBoard:
+    """
+    The shared board consists of
+    - all available tiles - 5 types of 20 tiles each
+    - the pouch with all the tiles
+    - the plates with 4 tiles that are visible and available to everybody
+    - the middle area with its tiles
+    """
     def __init__(self):
         self.n = 100
         self.m = 8
@@ -24,7 +33,8 @@ class SharedBoard:
         self.draw_tiles()
         pass
 
-    def draw_tiles(self):
+    def draw_tiles(self) -> None:
+        """ Draw tiles and fill the <m> plates with 4 tiles each """
         n = 4
         z = int(self.m * n)
 
@@ -36,17 +46,32 @@ MIDDLE = SharedBoard()
 
 
 class Player:
-    def __init__(self, player_name, limit_final_field=True):
+    """
+    Each player has:
+    - a name
+    - a personal board, which contains:
+        - an inner-round tile area - 5 rows of spaces for tiles
+        - an inner-round minus point tile area - space for tiles that give minus points
+        - a final tile area - space for tiles that are locked into the final scoring field
+        - a current point total
+    - the ability to:
+        - choose which plate to take tiles from
+        - choose which row in the inner-round tile area to use for their selected tiles
+        - count points at the end of each round
+    - the ability to count points
+    - the ability to choose 
+    """
+    def __init__(self, player_name):
         self.name = player_name
-
-        self.preset = limit_final_field
         self.pool = Counter()  # just a pool of tiles, unordered.
 
         self.round_field = [(i, Counter()) for i in range(1, 6)]
         self.final_field_check = self.setup_final_field()
-        self.final_field = pd.DataFrame(0,
-                                        index=range(1, 6),
-                                        columns=range(1, 6))
+        self.final_field = pd.DataFrame(
+            0,
+            index=range(1, 6),
+            columns=range(1, 6)
+        )
 
         self.minus_field = [-1, -1, -2, -2, -2, -3, -3]
 
@@ -58,7 +83,11 @@ class Player:
     def __repr__(self):
         return 'Player: {}'.format(self.name)
 
-    def endround_points(self):
+    def endround_points(self) -> None:
+        """
+        Count all points the player made this round.
+        Also clean up the inner-round areas for the next round.
+        """
         round_plus = self.move_to_final_field()
         round_minus = self.min_counts
 
@@ -76,13 +105,10 @@ class Player:
     def endgame_points(self):
         pass
 
-    def setup_final_field(self):
-        if self.preset:
-            values = 'ABCDE' * 2
-            valid_list = [list(values[i:i+5]) for i in range(5)]
-        else:
-            values = 'ABCDE'
-            valid_list = [set(list(values)) for _ in range(5)]
+    def setup_final_field(self) -> pd.DataFrame:
+        """ Returns dataframe that represent the spaces on the final tile area """
+        values = 'ABCDE' * 2
+        valid_list = [list(values[i:i+5]) for i in range(5)]
         return pd.DataFrame(valid_list)
 
     @property
@@ -94,13 +120,12 @@ class Player:
     def start_new_round(self):
         pass
 
-    def move_to_final_field(self):
-        if not self.preset:
-            msg = 'Populating final field is not yet implemented for the' \
-                  'non-preset final field. Use "limit_final_preset=True" ' \
-                  'instead'
-            raise NotImplementedError(msg)
-
+    def move_to_final_field(self) -> int:
+        """
+        Returns the number of round-end points the player earned
+        by moving tiles from the inner-round tile area to the final tile area.
+        Also clears up the inner-round tile area for the next round.
+        """
         round_points = 0
         for row, (cap, counter) in enumerate(self.round_field):
             grid = self.final_field_check
@@ -152,7 +177,7 @@ class Player:
         return count
 
 
-def draw_from_plate(tile, plate):
+def draw_from_plate(tile, plate) -> Counter:
     """
     Draws tiles from the shared board and adds them to player board.
     The remaining tiles are added to the shared board's middle.
@@ -182,7 +207,12 @@ def draw_from_plate(tile, plate):
     return chosen_tiles
 
 
-def draw_from_middle(tile):
+def draw_from_middle(tile: str) -> Counter:
+    """
+    Draws tiles from the shared board and adds them to player boards.
+    This function is comparable with draw_from_plate(), except the player
+    draw the tiles from the middle-area of the shared board.
+    """
     tile = str(tile).upper()
 
     if tile not in MIDDLE.middle:
@@ -198,8 +228,8 @@ def draw_from_middle(tile):
     return chosen_tiles
 
 
-def get_kind_and_count(counter):
-    """"returns the first -and only!- (key, value) pair"""
+def get_kind_and_count(counter) -> Tuple[str, int]:
+    """" Returns the first -and only!- (key, value) pair """
     try:
         key, value = list(counter.items())[0]
     except IndexError:
@@ -207,7 +237,13 @@ def get_kind_and_count(counter):
     return key, value
 
 
-def handle_slots_exceeded(player, avail, attempt, kind):
+def handle_slots_exceeded(
+    player: Player, avail: int, attempt: int, kind: str
+) -> Counter:
+    """
+    If a player attempts to add more tiles than possible to their inner-round tile area,
+    the player will have to add the excessive tiles to their inner-round minus point tile area.
+    """
     diff = attempt - avail
     minus = 0
     for _ in range(diff):
@@ -228,7 +264,7 @@ def handle_slots_exceeded(player, avail, attempt, kind):
     return _counter
 
 
-def add_to_round_field(player, row, chosen_tiles):
+def add_to_round_field(player: Player, row: int, chosen_tiles: Counter) -> List[Tuple[str, Counter]]:
     """
     Check validity and carry out move.
     Check validity in two ways:
@@ -236,7 +272,7 @@ def add_to_round_field(player, row, chosen_tiles):
     2) See if the max. number of slots will be exceeded, if so, then
 
     :param player: Player instance
-    :param row: int, row number in range(0, 5)
+    :param row: int, row number in range(1, 5)
     :param chosen_tiles: Counter() with one key-value pair
     :return:
     """
@@ -270,17 +306,18 @@ def add_to_round_field(player, row, chosen_tiles):
     return player.round_field
 
 
-def print_plate_state():
+def print_plate_state() -> None:
+    """ Print the current state of the plates on the shared board """
     for i, plate in enumerate(MIDDLE.plates):
         if len(plate) > 0:
             print(f' Plate {i} contains: ')
             for tile, count in plate.items():
                 msg = f'   {tile} ({count}) '
                 print(msg)
-    pass
 
 
-def print_middle_state():
+def print_middle_state() -> None:
+    """ Print the current state of the tiles in the middle of the shared board """
     if len(MIDDLE.middle) > 0:
         print('\n The middle contains: ')
         for tile, count in MIDDLE.middle.items():
@@ -288,10 +325,10 @@ def print_middle_state():
             print(msg)
     else:
         print('\n The middle is empty')
-    pass
 
 
 def print_own_field(round_field):
+    """ Print the current state of an inner-round tile area """
     for i, counter in round_field:
 
         tile, count = get_kind_and_count(counter)
@@ -304,67 +341,71 @@ def print_own_field(round_field):
     pass
 
 
-player_names = ['Luke', 'Paula']
-players = [Player(player_name=name) for name in player_names]
+def simulate() -> None:
+    player_names = ['Luke', 'Paula']
+    players = [Player(player_name=name) for name in player_names]
 
+    player_nr = 0
+    current_player = players[player_nr]
 
-player_nr = 0
-current_player = players[player_nr]
+    tiles_left = True
+    while tiles_left:
 
-tiles_left = True
-while tiles_left:
+        print_plate_state()
+        print_middle_state()
+        print('---')
+        print(f"{current_player.name}, it's your turn.. ")
 
-    print_plate_state()
-    print_middle_state()
-    print('---')
-    print(f"{current_player.name}, it's your turn.. ")
+        print(f'Your plate looks like: \n')
+        print_own_field(current_player.round_field)
 
-    print(f'Your plate looks like: \n')
-    print_own_field(current_player.round_field)
+        while True:
+            plate_nr = input('Which plate would you like to draw from? Press ENTER for middle \n > ')
+            tile_type = input('And which tile would you like to take? \n > ')
+            if plate_nr == '':
+                try:
+                    draw = draw_from_middle(tile_type)
+                except ValueError as err:
+                    print(err)
+                    print('Enter a valid value ..')
+                    continue
+                else:
+                    break
+            else:
+                try:
+                    draw = draw_from_plate(tile_type, plate_nr)
+                except ValueError as err:
+                    print(err)
+                    print('Enter a valid value ..')
+                    continue
+                else:
+                    break
 
-    while True:
-        plate_nr = input('Which plate would you like to draw from? Press ENTER for middle \n > ')
-        tile_type = input('And which tile would you like to take? \n > ')
-        if plate_nr == '':
+        row = input('Which row would you like to fill this tile on your board?')
+
+        while True:
             try:
-                draw = draw_from_middle(tile_type)
+                current_player.round_field = add_to_round_field(current_player, row, draw)
             except ValueError as err:
                 print(err)
                 print('Enter a valid value ..')
                 continue
             else:
                 break
-        else:
-            try:
-                draw = draw_from_plate(tile_type, plate_nr)
-            except ValueError as err:
-                print(err)
-                print('Enter a valid value ..')
-                continue
-            else:
-                break
 
-    row = input('Which row would you like to fill this tile on your board?')
+        # TODO: catch invalid entries - currently 'draw' gets None and messes everything up.
+        # TODO: add whileTrue logic for valid user input add_to_round_field. currently runs into infinite loop of printing
+        empty_middle = (len(MIDDLE.middle) == 0)
+        empty_plates = all(len(plate) == 0 for plate in MIDDLE.plates)
+        tiles_left = ~(empty_middle & empty_plates)
 
-    while True:
+        player_nr += 1
         try:
-            current_player.round_field = add_to_round_field(current_player, row, draw)
-        except ValueError as err:
-            print(err)
-            print('Enter a valid value ..')
-            continue
-        else:
-            break
+            current_player = players[player_nr]
+        except IndexError:
+            player_nr = 0
+            current_player = players[player_nr]
 
-    # TODO: catch invalid entries - currently 'draw' gets None and messes everything up.
-    # TODO: add whileTrue logic for valid user input add_to_round_field. currently runs into infinite loop of printing
-    empty_middle = (len(MIDDLE.middle) == 0)
-    empty_plates = all(len(plate) == 0 for plate in MIDDLE.plates)
-    tiles_left = ~(empty_middle & empty_plates)
 
-    player_nr += 1
-    try:
-        current_player = players[player_nr]
-    except IndexError:
-        player_nr = 0
-        current_player = players[player_nr]
+if __name__ == "__main__":
+    simulate()

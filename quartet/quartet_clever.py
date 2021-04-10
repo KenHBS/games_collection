@@ -16,6 +16,14 @@ class Card(NamedTuple):
     # In particular, __hash__ and __eq__ are created automatically, so Card
     # can be used as a dictionary key -> for "knowledge" and "card location"
 
+    """
+    Each card is combination of a group and a number:
+    - a group: 'A', 'B', 'C', 'D' or 'E'
+    - a number: 1, 2, 3 or 4
+
+    There are 20 cards in total
+    """
+
     group: str
     number: int
 
@@ -27,11 +35,11 @@ FULL_DECK = [Card(group, int(nr)) for group in "ABCDE" for nr in range(1, 5)]
 
 
 class Hand(list):
-    """Collection of cards, with some added functionality compared to a list"""
+    """ Collection of cards, with some added functionality compared to a list """
 
     @property
     def quartets(self) -> List[str]:
-        """ Return list with card group that have a full quartet """
+        """ Returns list with card group that have a full quartet """
         return [k for k, v in self.group_counter.items() if v == 4]
 
     @property
@@ -42,6 +50,21 @@ class Hand(list):
 
 @dataclass
 class Player:
+    """
+    There are 4 players, each with:
+    - a name
+    - a number of cards in their hands
+    - a number of game points
+    - decision policy
+
+    Each player must be aware of the rules and are therefore able to:
+    - identify cards they are allowed to ask for
+    - choose a card they would like to ask for
+    - file 
+    - realise that their game is over when they don't have cards in their hand anymore
+
+    Each player is identified by their name + decision policy.
+    """
     name: str
     hand: Hand = field(default_factory=Hand)
     points: int = 0
@@ -53,10 +76,16 @@ class Player:
 
     @property
     def is_finished(self) -> bool:
+        """ A player is finished when they have no more cards in their hand """
         return len(self.hand) == 0
 
     @property
     def eligible_cards(self) -> List[Card]:
+        """
+        A player is only allowed to ask for:
+            - cards from groups of which they already own at least one card from
+            - cards they don't own themselves yet (obviously)
+        """
         return [
             card
             for card in FULL_DECK
@@ -66,6 +95,12 @@ class Player:
 
     @property
     def eligible_cards_ranked(self):
+        """
+        Returns a ranking of which card a player should ask for.
+
+        If they already own 3 cards from a group, they will want to ask for
+        the missing card in that group to fill their quartet.
+        """
         # to avoid getting the same cards in case of tie
         shuffled_cards = random.sample(self.eligible_cards, len(self.eligible_cards))
 
@@ -76,7 +111,7 @@ class Player:
         )
 
     def choose_card(self, knowledge: Any = None) -> Card:
-        """ Pick a card to ask for """
+        """ Returns a card to ask for. """
         LOGGER.info(f"{self.name} can ask for {len(self.eligible_cards)} cards")
         if self.decision_policy == "random":
             return random.choice(self.eligible_cards)
@@ -139,6 +174,15 @@ class Player:
 
 class QuartetGame:
     def __init__(self, players: List[Player]):
+        """
+        The orchestrator of the game.
+        Each game starts with 4 players and a total of 20 cards (4x5) each.
+        As the game develops, a "public knowledge" of where cards are located is filled up.
+
+        The game is also aware of who the current player is, who the active players are and
+        whether or not a player needs to put down their completed quartets.
+        """
+
         self.players = players
         self.deck = random.sample(FULL_DECK, len(FULL_DECK))
 
@@ -254,7 +298,7 @@ class QuartetGame:
 
 if __name__ == "__main__":
 
-    names = ["Pieter", "David", "Shawn", "Sebastian"]
+    names = ["Powpow", "Lucky Luke", "Donald Duck", "Ken"]
     policies = ["pretty-smart", "pretty-smart", "random", "semi-random"]
 
     # To make sure I'm not mean to anybody ;-)

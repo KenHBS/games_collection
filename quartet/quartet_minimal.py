@@ -16,6 +16,13 @@ class Card(NamedTuple):
     # In particular, __hash__ and __eq__ are created automatically, so Card
     # can be used as a dictionary key -> for "knowledge" and "card location"
 
+    """
+    Each card is combination of a group and a number:
+    - a group: 'A', 'B', 'C', 'D' or 'E'
+    - a number: 1, 2, 3 or 4
+
+    There are 20 cards in total
+    """
     group: str
     number: int
 
@@ -42,6 +49,17 @@ class Hand(list):
 
 @dataclass
 class Player:
+    """
+    There are 4 players, each with:
+    - a name
+    - a number of cards in their hands
+    - a number of game points
+
+    Each player must be aware of the rules and are therefore able to:
+    - identify cards they are allowed to ask for
+    - choose a card they would like to ask for
+    - realise that their game is over when they don't have cards in their hand anymore
+    """
     name: str
     hand: Hand = field(default_factory=Hand)
     points: int = 0
@@ -52,6 +70,11 @@ class Player:
 
     @property
     def eligible_cards(self):
+        """
+        A player is only allowed to ask for:
+            - cards from groups of which they already own at least one card from
+            - cards they don't own themselves yet (obviously)
+        """
         return [
             card
             for card in FULL_DECK
@@ -60,7 +83,7 @@ class Player:
         ]
 
     def choose_card(self) -> Card:
-        """ Pick a card to ask for """
+        """ Returns a card to ask for. """
         LOGGER.info(f"{self.name} can ask for {len(self.eligible_cards)} cards")
         return random.choice(self.eligible_cards)
 
@@ -71,6 +94,13 @@ class Player:
 
 class QuartetGame:
     def __init__(self, players: List[Player]):
+        """
+        The orchestrator of the game.
+        Each game starts with 4 players and a total of 20 cards (4x5) each.
+
+        The game is also aware of who the current player is, who the active players are and
+        whether or not a player needs to put down their completed quartets.
+        """
         self.players = players
         self.deck = random.sample(FULL_DECK, len(FULL_DECK))
 
@@ -172,7 +202,7 @@ class QuartetGame:
 
 
 if __name__ == "__main__":
-    names = ["Pieter", "David", "Shawn", "Sebastian"]
+    names = ["Powpow", "Lucky Luke", "Donald Duck", "Ken"]
     players = [Player(name=name) for name in names]
 
     quartet = QuartetGame(players=players)

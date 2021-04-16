@@ -1,5 +1,3 @@
-# TODO: implement __add__ in InnerRoundTileAreaRows
-
 from misc import Tile, Pouch, TileCounter
 from typing import Union, Literal
 
@@ -33,6 +31,11 @@ class InnerRoundTileAreaRows:
         self._validate_style(incoming_style=other.tile.style)
         self._validate_available_space(incoming_tile_count=other.count)
 
+        fill_start = self.used_spaces
+        fill_end = fill_start + other.count
+
+        self.spaces[fill_start:fill_end] = [other.tile] * 2
+
     def _validate_style(incoming_style: str) -> None:
         """ Raise error when the incoming tile style is incompatible with the row """
         if self.row_style is not None:
@@ -59,6 +62,11 @@ class InnerRoundTileAreaRows:
     def free_spaces(self) -> int:
         """ Returns how many None spaces are left in the row """
         return sum(1 for x  in self.spaces if x is None)
+
+    @property
+    def used_spaces(self) -> int:
+        """ Returns how many spaces are occupied by tiles """
+        return sum(1 for x in self.spaces if x is not None)
 
     def flush_row(self) -> List[None]:
         """ Flush all tiles from the spaces. That is, fill them with Nones """

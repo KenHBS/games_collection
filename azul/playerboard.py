@@ -1,5 +1,5 @@
 from misc import Tile, Pouch, TileCounter
-from typing import Union, Literal
+from typing import Union, Literal, List
 
 
 class PlayerBoard:
@@ -20,37 +20,21 @@ class PlayerBoard:
 
 
 class InnerRoundTileAreaRows:
+    """
+    This class describes the rows in the InnerRoundTileArea.
+
+    - The rows have between 1, 2, 3, 4 or 5 spaces that may be occupied by max. 1 tile type.
+    - The predefined number of spaces can never be exceeded.
+    - Tiles can only be removed from the 
+    """
     def __init__(self, capacity: Literal[1, 2, 3, 4, 5]):
         self.capacity = capacity
 
         self.row_tile_style = None
         self.spaces = [None] * capacity
 
-    def __add__(self, other: TileCounter) -> None:
-        """ Add a TileCounter to this row """
-        self._validate_style(incoming_style=other.tile.style)
-        self._validate_available_space(incoming_tile_count=other.count)
-
-        fill_start = self.used_spaces
-        fill_end = fill_start + other.count
-
-        self.spaces[fill_start:fill_end] = [other.tile] * 2
-
-    def _validate_style(incoming_style: str) -> None:
-        """ Raise error when the incoming tile style is incompatible with the row """
-        if self.row_style is not None:
-            if row_style != incoming_style:
-                msg = f"Can only add same style tiles to a row. You are trying to add {incoming_style} tile(s) to a row with {row_style}."
-                raise ValueError(msg)
-
-    def _validate_available_space(incoming_tile_count: int) -> None:
-        """ Raise error when the number of incoming tiles exceeds the available space in the row """
-        if incoming_tile_count > self.free_spaces:
-            msg = f"Only {self.free_spaces} available in this row. You tried to add {incoming_tile_count}."
-            raise ValueError(msg)
-
     @property
-    def row_style(self) -> Union[None, Tile.style]:
+    def row_style(self) -> Union[None, str]:
         """ Returns the Tile.style of the tiles in this row. Return None if row is empty """
         if self.spaces[0] is None:
             return None
@@ -69,9 +53,41 @@ class InnerRoundTileAreaRows:
         return sum(1 for x in self.spaces if x is not None)
 
     def flush_row(self) -> List[None]:
-        """ Flush all tiles from the spaces. That is, fill them with Nones """
+        """ Flush all tiles from the spaces. That is, fill them with Nones.
+        This is only possible when all spaces are occupied. """
+        if self.free_spaces > 0:
+            msg = f"The row still has free spaces. Cannot flush row until it's full: {self}"
+            raise ValueError(msg)
+
         self.row_tile_style = None
         self.spaces = [None] * self.capacity
+
+    def __add__(self, other: TileCounter) -> None:
+        """ Add a TileCounter to this row """
+        self._validate_style(incoming_style=other.tile.style)
+        self._validate_available_space(incoming_tile_count=other.count)
+
+        fill_start = self.used_spaces
+        fill_end = fill_start + other.count
+
+        self.spaces[fill_start:fill_end] = [other.tile] * other.count
+
+    def __repr__(self) -> str:
+        """ Visual representation of this class """
+        return str(["--" if v is None else v for v in self.spaces])
+
+    def _validate_style(self, incoming_style: str) -> None:
+        """ Raise error when the incoming tile style is incompatible with the row """
+        if self.row_style is not None:
+            if self.row_style != incoming_style:
+                msg = f"Can only add same style tiles to a row. You are trying to add {incoming_style} tile(s) to a row with {self.row_style}."
+                raise ValueError(msg)
+
+    def _validate_available_space(self, incoming_tile_count: int) -> None:
+        """ Raise error when the number of incoming tiles exceeds the available space in the row """
+        if incoming_tile_count > self.free_spaces:
+            msg = f"Only {self.free_spaces} available in this row. You tried to add {incoming_tile_count}."
+            raise ValueError(msg)
 
 
 class InnerRoundTileArea:
@@ -90,15 +106,7 @@ class InnerRoundTileArea:
     Note that this action may only happen when the rows in the InnerRoundTileArea is completely filled
     """
     def __init__(self):
-        self.grid = {i: [None]*i for i in range(1, 6)}
-
-    def add(self, tile_counter: TileCounter, grid_row: Literal[1, 2, 3, 4, 5]) -> None:
-        """ add tile_counter to your plate """
-        self._validate_grid_type()
-        self.grid[grid_row] += tile_counter
-
-
-
+        self.grid = {i: InnerRoundTileAreaRows(i) for i in range(1, 6)}
 
 
 class EndStateTileArea:

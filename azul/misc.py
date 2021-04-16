@@ -20,7 +20,7 @@ class Tile:
 
 class TileCounter:
     def __init__(self, tile: Tile, count: int):
-        self.tile = Tile
+        self.tile = tile
         self.count = count
 
     def __repr__(self):

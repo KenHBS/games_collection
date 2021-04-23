@@ -28,7 +28,62 @@ class TileCounter:
 
 
 class Pouch(List[Tile]):
-    """ The pouch that contains all tiles in the beginning and is used to draw new tiles from """
+    """
+    The pouch that contains all tiles in the beginning of the game.
+
+    Tiles are taken from the pouch to fill up the shared board.
+    Discarded tiles are added to the pouch once it's completely empty.
+    """
     def __init__(self):
-        super().__init__([Tile(style) for style in range(5) for _ in range(20)])
+        super().__init__(
+            [Tile(style) for style in range(5) for _ in range(20)]
+        )
         shuffle(self)
+
+
+class EndStateAreaSequence(list):
+    def __init__(self, n):
+        super().__init__([None]*5)
+
+    def count_one_dimension(self, index: Literal[range(1, 6)]) -> int:
+        """
+        Returns the number of adjacently occupied fields to the tile at 'index'
+        """
+
+        anchor_tile_index = index - 1
+        if self[anchor_tile_index] is None:
+            raise ValueError(f"Cannot count the points of unoccupied space.\
+                Trying to count element #{index} of {self}")
+        point_counter = 1
+
+        # count left-adjacent occupied tiles
+        leftmost_spot = anchor_tile_index == 0
+        left_tile_index = anchor_tile_index - 1
+
+        # check whether left tile is out of  bounds, i.e. check if
+        # left_tile_index is negative:
+        if not leftmost_spot:
+            while (self[left_tile_index] is not None) and not leftmost_spot:
+                point_counter += 1
+                left_tile_index -= 1
+                leftmost_spot = left_tile_index == 0
+
+        # count right-adjacent occupied tiles
+        rightmost_spot = anchor_tile_index == 4
+        right_tile_index = anchor_tile_index + 1
+
+        # check whether right tile is not out of bounds
+        if not rightmost_spot:
+            while (self[right_tile_index] is not None) and not rightmost_spot:
+                point_counter += 1
+                right_tile_index += 1
+                rightmost_spot = right_tile_index == 4
+
+        return point_counter
+
+    def __setitem__(self, index: int, value: Tile):
+        if value in self:
+            msg = f"This end-state sequence ({self}) already contains {value}.\
+                You can only place new tile types in this row"
+            raise ValueError(msg)
+        self[index] = value

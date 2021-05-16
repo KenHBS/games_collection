@@ -14,8 +14,14 @@ class Tile:
     def __init__(self, style: Literal[0, 1, 2, 3, 4]):
         self.style = Tile.style_mapping[style]
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return self.style
+
+    def __eq__(self, other) -> bool:
+        if isinstance(other, Tile):
+            return self.style == other.style
+        else:
+            return False
 
 
 class TileCounter:
@@ -40,9 +46,14 @@ class Pouch(List[Tile]):
         )
         shuffle(self)
 
+    def __add__(self, other: TileCounter):
+        add_this = [other.tile] * other.count
+        super().__add__(self, add_this)
+        shuffle(self)
+
 
 class EndStateAreaSequence(list):
-    def __init__(self, n):
+    def __init__(self):
         super().__init__([None]*5)
 
     def count_one_dimension(self, index: Literal[range(1, 6)]) -> int:
@@ -53,7 +64,7 @@ class EndStateAreaSequence(list):
         anchor_tile_index = index - 1
         if self[anchor_tile_index] is None:
             raise ValueError(f"Cannot count the points of unoccupied space.\
-                Trying to count element #{index} of {self}")
+Trying to count element #{index} of {self}")
         point_counter = 1
 
         # count left-adjacent occupied tiles
@@ -81,9 +92,14 @@ class EndStateAreaSequence(list):
 
         return point_counter
 
-    def __setitem__(self, index: int, value: Tile):
+    def __setitem__(self, index: int, value: Tile) -> None:
         if value in self:
             msg = f"This end-state sequence ({self}) already contains {value}.\
-                You can only place new tile types in this row"
+You can only place new tile types in this row"
             raise ValueError(msg)
-        self[index] = value
+        super().__setitem__(index, value)
+
+    def __repr__(self) -> str:
+        return " | ".join(
+            '-'*8 if t is None else str(t).center(8) for t in self
+        )

@@ -1,5 +1,5 @@
 from playerboard import PlayerBoard
-from misc import TileCounter, Tile
+from tiles import TileCounter, Tile
 
 
 if __name__ == "__main__":

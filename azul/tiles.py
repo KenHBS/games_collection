@@ -19,8 +19,10 @@ class Tile:
     def __eq__(self, other) -> bool:
         if isinstance(other, Tile):
             return self.style == other.style
-        else:
-            return False
+        return NotImplemented
+
+    def __hash__(self):
+        return hash(self.style)
 
 
 class TileCounter:

@@ -1,5 +1,11 @@
 # TODO: Implement the PlayerBoard and how the different components interact
 # with each other
+# TODO: Figure out how "Plate" should be a list of tiles, list of TileCounter,
+# # or a counter
+# TODO: Figure out how Literal[range(5)] is supposed to be implemnented
+# TODO: Add "is_start_player" for first draw from the middle
+# TODO: Implement the 'middle'
+
 
 from shared_resources import Pouch
 from tiles import TileCounter

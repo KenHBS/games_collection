@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 from typing import Literal
 
 
@@ -25,10 +26,10 @@ class Tile:
         return hash(self.style)
 
 
+@dataclass
 class TileCounter:
-    def __init__(self, tile: Tile, count: int):
-        self.tile = tile
-        self.count = count
+    tile: Tile
+    count: int = 0
 
     def __repr__(self):
         return f"{self.count} x {self.tile}"

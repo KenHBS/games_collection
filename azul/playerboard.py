@@ -1,10 +1,11 @@
 # TODO: Implement the PlayerBoard and how the different components interact
 # with each other
-# TODO: Figure out how "Plate" should be a list of tiles, list of TileCounter,
-# # or a counter
+# TODO: Make sure that tiles are transferred to TileCounters when picked up
+# from Plate
 # TODO: Figure out how Literal[range(5)] is supposed to be implemnented
-# TODO: Add "is_start_player" for first draw from the middle
-# TODO: Implement the 'middle'
+# TODO: Add "is_start_player" for first draw from the middle --> implement
+# Dealer class
+# TODO: Implement Player class
 
 
 from shared_resources import Pouch

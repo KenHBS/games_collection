@@ -1,5 +1,6 @@
+from collections import defaultdict
 from random import shuffle
-from typing import List, Dict
+from typing import List
 
 from tiles import Tile, TileCounter
 
@@ -23,25 +24,4 @@ class Pouch(List[Tile]):
         shuffle(self)
 
 
-class Plate:
-    """A plate contains tiles that can be picked up by players"""
-    def __init__(self, plate_id: int):
-        self.id = plate_id
-
-    def split_tiles(self, keep: Tile) -> Dict:
-        """ Choose one tile type to keep, the rest lands in the middle area """
-        pass
-        # keepers = [tile for tile in self.tiles if tile.style == keep.style]
-        # non_keepers = [
-        #   tile for tile in self.tiles if tile.style != keep.style
-        # ]
-
-        # non_keepers
-        # return {"to_middle": non_keepers, }
-
-    def pick_up(self, tile: Tile) -> TileCounter:
-        # split tiles, add some to middle, some to player board
-        pass
-
-    def fill_plate(self, pouch: Pouch):
-        pass
+Plate = defaultdict

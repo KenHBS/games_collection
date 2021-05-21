@@ -3,6 +3,7 @@
 # TODO: Add property to end-state tile area indicating if game is finished -> one full row
 # TODO: Align naming conventions with https://www.ultraboardgames.com/azul/game-rules.php
 # TODO: Create actual game to check / test how it works
+# TODO: Figure out whether to standardise TileCounter, List(TileCounter) and Factories
 
 
 from shared_resources import Pouch, Factory, TheMiddle

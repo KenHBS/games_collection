@@ -8,17 +8,16 @@ I did end up playing this game quite a bit and it's a fantastic game! The design
 I found this code I wrote a while ago. I never finished it and the general structure of the code is not great.
 
 The intended structure of the classes is:
+- Each `TheGame` has a number of `Player`s
 - Each `Player` has a `Playerboard`
 - Each `PlayerBoard` has
     - `InnerRoundTileArea`
     - `InnerRoundMinusPoints`
     - `EndStateTileArea`
     - current points
-- Each `SharedBoard` has
-    - `Plate`s
-- Each `Plate` has
-    - `Tile`s
+- Everybody has access to some shared resources, such as:
+    - `Factory`
+    - `Pouch` with `Tiles`
+    - `TheMiddle`
 
-- Each `Player` can interact with `SharedBoard`
-- Each `Player` can interact with their `PlayerBoard`
-- Each `Player` manages the interactions between the attributes on their `PlayerBoard`
+The current state of the repo is depicted in this diagram ![Check it out](diagram.png)

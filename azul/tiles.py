@@ -12,7 +12,7 @@ class Tile:
         99: "minus1 \U00002620",
     }
 
-    def __init__(self, style: Literal[0, 1, 2, 3, 4]):
+    def __init__(self, style: Literal[0, 1, 2, 3, 4, 99]):
         self.style = Tile.style_mapping[style]
 
     def __repr__(self) -> str:

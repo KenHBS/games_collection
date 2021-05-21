@@ -8,7 +8,8 @@ class Tile:
         1: "blue \U00002021",
         2: "red \U00002051",
         3: "yellow \U00002050",
-        4: "white \U000020AA"
+        4: "white \U000020AA",
+        99: "minus1 \U00002620",
     }
 
     def __init__(self, style: Literal[0, 1, 2, 3, 4]):

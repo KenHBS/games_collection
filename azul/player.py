@@ -1,9 +1,3 @@
-# TODO: Implement TheGame class: start-player, player order, factory filling
-# TODO: Create actual game to check / test how it works
-# TODO: Figure out whether to standardise TileCounter, List(TileCounter) and
-# Factories
-
-
 from tiles import TileCounter, Tile
 from game_pieces import Pouch, Factory, TheMiddle
 from board import PlayerBoard
@@ -79,3 +73,6 @@ class Player:
         to_be_discarded_tiles = self.board.handle_round_end()
         for tile_counter in to_be_discarded_tiles:
             pouch += tile_counter
+
+    def __repr__(self) -> str:
+        return f"{self.name}: {self.board.point_total} points"

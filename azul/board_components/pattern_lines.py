@@ -1,15 +1,37 @@
 from typing import Union, Literal, List
-from tiles import Tile, TileCounter
+from tiles import TileCounter
 
 
-class InnerRoundTileAreaRows:
+class PatternLines:
     """
-    This class describes the rows in the InnerRoundTileArea.
+    The pattern lines area is located on each player's board.
+
+    This area contains 5 rows (PatternLineRows) with 1 to 5 spots to put tiles.
+
+    Each pattern line row can only contain a single type of tile.
+
+    Tiles are added to this area by picking up tiles from the factories.
+
+    When a pattern line row is completely filled, then the row will be cleared
+    at the end of a round. This is done by:
+    - moving a single tile of the row over to the Wall
+    - moving the remainder of the tiles (if any) back into the Pouch.
+    """
+    def __init__(self):
+        self.grid = {i: PatternLinesRows(i) for i in range(1, 6)}
+
+    def __repr__(self) -> str:
+        return "\n".join(str(self.grid[i]) for i in range(1, 6))
+
+
+class PatternLinesRows:
+    """
+    This class describes the rows in the PatterLines area.
 
     - The rows have between 1, 2, 3, 4 or 5 spaces that may be occupied by max.
         1 tile type.
     - The predefined number of spaces can never be exceeded.
-    - Tiles can only be removed when they're moved into the EndStateTileArea
+    - Tiles can only be removed when they're moved into the Wall area
     """
     def __init__(self, capacity: Literal[1, 2, 3, 4, 5]):
         self.capacity = capacity
@@ -80,71 +102,3 @@ You tried to add {incoming_style} tile(s) to a row with {self.row_style}."
             msg = f"Only {self.free_spaces} available in this row. \
 You tried to add {incoming_tile_count}."
             raise ValueError(msg)
-
-
-class InnerRoundTileArea:
-    """
-    The inner-round title area is located on each player's board.
-
-    This area contains:
-    - 5 rows with 1, 2, 3, 4 and 5 spaces to put tiles. This is called grid
-
-    Each row can only contain a single type of tile.
-
-    Tiles are added to this area by picking up tiles from the SharedBoard
-    Tiles are removed from this area at the end of a round. This is done by:
-    - moving a single tile of the row over to the EndStateTileArea of the
-        PlayerBoard.
-    - moving the remainder of the tiles (if any) back into the tile pool.
-    Note that this action may only happen when the rows in the
-        InnerRoundTileArea is completely filled
-    """
-    def __init__(self):
-        self.grid = {i: InnerRoundTileAreaRows(i) for i in range(1, 6)}
-
-    def __repr__(self) -> str:
-        return "\n".join(str(self.grid[i]) for i in range(1, 6))
-
-
-class InnerRoundMinusPoints(List[Tile]):
-    """
-    Whenever a player takes tiles from the SharedBoard, but is not able
-    to place them in their inner-round tile area (there are multiple reasons),
-    the player is penalised.
-
-    At the end of each round, the inner-round minus point area is cleared of
-    its tiles and the minus point are deducted from the player's round point
-    total.
-
-    The penalty for adding tiles to the negative point area increases when
-    more tiles are added to the inner-round minus point area. This increasing
-    penalty is captured by `negative_point_mapping`.
-    """
-    negative_point_mapping = {
-        0: 0,
-        1: 1,
-        2: 2,
-        3: 4,
-        4: 6,
-        5: 8,
-        6: 11,
-        7: 14
-    }
-
-    def __add__(self, other: TileCounter) -> List[Tile]:
-        """ Returns list with minus-point area tiles plus new tiles """
-        add_this = [other.tile] * other.count
-        return super().__add__(add_this)
-
-    def __iadd__(self, other: TileCounter) -> None:
-        """ Adds new tiles to the minus-point area tiles """
-        return InnerRoundMinusPoints(self.__add__(other))
-
-    def count_minus_points(self) -> int:
-        """ Returns to number of minus game points """
-        x = self.__len__()
-        return InnerRoundMinusPoints.negative_point_mapping.get(x, 14)
-
-    def __repr__(self):
-        tiles = ", ".join(x.style for x in self)
-        return f"{tiles} - ({self.count_minus_points()} minus points)"

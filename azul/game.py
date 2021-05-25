@@ -1,3 +1,6 @@
+# TODO: Handle round ends in TheGame
+# TODO: Add logging
+
 from typing import Dict, List
 import time
 from random import choice

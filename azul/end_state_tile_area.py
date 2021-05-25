@@ -54,6 +54,11 @@ You can only place new tile types in this row"
             '-'*8 if t is None else str(t).center(8) for t in self
         )
 
+    @property
+    def is_full(self) -> bool:
+        """ Check if the sequence is completely filled with tiles """
+        return all(val is not None for val in self)
+
 
 class EndStateTileArea:
     """
@@ -115,3 +120,9 @@ class EndStateTileArea:
 
     def __repr__(self) -> str:
         return str(self.rows)
+
+    @property
+    def is_finished(self) -> bool:
+        """ Check if any of the rows are completely filled, which would mark
+        the end of the game. """
+        return any(row.is_full for row in self.rows.values())

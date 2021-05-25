@@ -1,5 +1,4 @@
 # TODO: Implement TheGame class: start-player, player order, factory filling
-# TODO: Add property to end-state tile area indicating if game is finished -> one full row
 # TODO: Align naming conventions with https://www.ultraboardgames.com/azul/game-rules.php
 # TODO: Create actual game to check / test how it works
 # TODO: Figure out whether to standardise TileCounter, List(TileCounter) and Factories
@@ -224,4 +223,7 @@ class TheGame:
     def game_will_end(self) -> bool:
         """ Check if at least 1 player already has one entire row filled in
         their end-state tile area """
-        pass
+        return any(
+            player.board.end_state_tile_area.is_finished
+            for player in self.players
+        )

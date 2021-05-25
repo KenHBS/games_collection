@@ -1,4 +1,3 @@
-# TODO: Figure out how Literal[range(5)] is supposed to be implemnented
 # TODO: Implement TheGame class: start-player, player order, factory filling
 # TODO: Add property to end-state tile area indicating if game is finished -> one full row
 # TODO: Align naming conventions with https://www.ultraboardgames.com/azul/game-rules.php

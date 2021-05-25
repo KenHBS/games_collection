@@ -6,7 +6,7 @@ class EndStateAreaSequence(list):
     def __init__(self):
         super().__init__([None]*5)
 
-    def count_one_dimension(self, index: Literal[range(1, 6)]) -> int:
+    def count_one_dimension(self, index: Literal[1, 2, 3, 4, 5]) -> int:
         """
         Returns the number of adjacently occupied fields to the tile at 'index'
         """
@@ -81,8 +81,8 @@ class EndStateTileArea:
     def add_tile(
         self,
         tile: Tile,
-        row_nr: Literal[range(5)],
-        col_nr: Literal[range(5)]
+        row_nr: Literal[0, 1, 2, 3, 4],
+        col_nr: Literal[0, 1, 2, 3, 4]
     ) -> None:
         """ Add tile to the end-state tile area """
         not_yet_in_row = tile not in self.rows[row_nr]
@@ -97,8 +97,8 @@ class EndStateTileArea:
 
     def count_points_tile(
         self,
-        row_nr: Literal[range(5)],
-        col_nr: Literal[range(5)]
+        row_nr: Literal[0, 1, 2, 3, 4],
+        col_nr: Literal[0, 1, 2, 3, 4]
     ) -> int:
         """
         Returns the number of points awarded for adding tile into the

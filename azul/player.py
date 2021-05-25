@@ -13,7 +13,7 @@ class Player:
         self,
         draw_from: Factory,
         tile: Tile,
-        the_middle: Factory,
+        the_middle: TheMiddle,
         add_tiles_to_row_nr: Optional[int] = None,
     ) -> TheMiddle:
         """
@@ -36,7 +36,7 @@ class Player:
         if add_tiles_to_row_nr is None:
             print(f"Moving {tile_counter} to your board!")
             print(f"Player board looks like {self.board}.")
-            add_tiles_to_row_nr = input(f"Where to add {tile_counter}?")
+            add_tiles_to_row_nr = int(input(f"Where to add {tile_counter}? "))
 
         self.board.add_tile_count(
             tiles=tile_counter,

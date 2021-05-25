@@ -11,6 +11,7 @@ class Tile:
         4: "white \U000020AA",
         99: "minus1 \U00002620",
     }
+    reverse_mapping = {v: k for k, v in style_mapping.items()}
 
     def __init__(self, style: Literal[0, 1, 2, 3, 4, 99]):
         self.style = Tile.style_mapping[style]

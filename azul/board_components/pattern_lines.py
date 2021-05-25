@@ -21,7 +21,7 @@ class PatternLines:
         self.grid = {i: PatternLinesRows(i) for i in range(1, 6)}
 
     def __repr__(self) -> str:
-        return "\n".join(str(self.grid[i]) for i in range(1, 6))
+        return "\n".join(f"{k}: {str(v)}" for k, v in self.grid.items())
 
 
 class PatternLinesRows:

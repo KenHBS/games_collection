@@ -58,7 +58,7 @@ class Wall:
         return points
 
     def __repr__(self) -> str:
-        return str(self.rows)
+        return "\n".join(str(row) for row in self.rows.values())
 
     @property
     def is_finished(self) -> bool:

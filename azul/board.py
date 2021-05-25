@@ -1,6 +1,6 @@
 from board_components import PatternLines, FloorLine, Wall
 from tiles import Tile, TileCounter
-from typing import List
+from typing import List, Optional
 
 
 class PlayerBoard:
@@ -19,11 +19,17 @@ class PlayerBoard:
         self.wall = Wall()
         self.floor_line = FloorLine()
 
-    def add_tile_count(self, tiles: TileCounter, row_nr: int) -> None:
+    def add_tile_count(
+        self,
+        tiles: TileCounter,
+        row_nr: Optional[int] = None
+    ) -> None:
         """
-        Add tile counters to your inner-round area. If there is not enough
+        Add tile counters to your pattern line area. If there is not enough
         capacity, the surplus tiles will be added to the minus point area
         """
+        if row_nr is None:
+            row_nr = int(input(f"To which row number should {tiles} be added? "))
         row = self.pattern_lines.grid[row_nr]
 
         # handle surplus tiles
@@ -73,7 +79,7 @@ class PlayerBoard:
                 print("Your end-state-tile-area looks like this:")
                 print(self.wall)
                 while True:
-                    col_nr = input("In which column do you place the tile?")
+                    col_nr = int(input("In which column do you place the tile?"))
                     try:
                         self.wall.add_tile(
                             tile, row_nr=row_nr, col_nr=col_nr
@@ -112,8 +118,8 @@ class PlayerBoard:
 
     def __repr__(self) -> str:
         points = f"Total points: {self.point_total}."
-        minus = f"This round's minus points (floor line): {self.floor_line}"
-        in_round = f"Pattern lines: {self.pattern_lines}"
-        end_round = f"Wall: {self.wall}"
+        minus = f"This round's minus points (floor line):{self.floor_line}"
+        in_round = f"Pattern lines:\n{self.pattern_lines}"
+        end_round = f"Wall:\n{self.wall}"
 
         return "\n".join([points, minus, in_round, end_round])

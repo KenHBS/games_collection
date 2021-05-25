@@ -15,3 +15,8 @@ class TheMiddle(Factory):
     def __init__(self):
         self.is_untouched = True
         super().__init__()
+
+    def __repr__(self):
+        content = super().__repr__()
+        starter_marker = f"Contains start player marker: {self.is_untouched}"
+        return f"{starter_marker}\n{content}"

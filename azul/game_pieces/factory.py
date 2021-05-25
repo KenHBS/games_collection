@@ -12,3 +12,6 @@ class Factory(defaultdict):
     @property
     def is_empty(self):
         return sum(self.values()) == 0
+
+    def __repr__(self):
+        return ", ".join(f"{k} x {v}" for v, k in self.items())

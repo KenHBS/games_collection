@@ -1,8 +1,3 @@
-
-
-# TODO: Implement TheGame class: start-player, player order, factory filling
-# TODO: Add property to indicate finished round to TheGame
-
 # TODO: Create actual game to check / test how it works
 # TODO: Figure out whether to standardise TileCounter, List(TileCounter) and
 # Factories
@@ -37,9 +32,17 @@ class TheGame:
         self.player_cycle = cycle(player_names)
 
     def _fill_factories(self) -> Dict[int, Factory]:
-        """ Fill the factories with 4 tiles """
+        """ Fill all factories with 4 tiles each from the pouch """
         factory_count = TheGame.factory_count_mapping[len(self.players)]
-        return {i: Factory() for i in range(factory_count)}
+        return {i: self._fill_factory() for i in range(factory_count)}
+
+    def _fill_factory(self) -> Factory:
+        """ Fill a factory with 4 tiles from the pouch """
+        factory = Factory()
+        four_tiles = self.pouch.take_four()
+        for tile in four_tiles:
+            factory[tile] += 1
+        return factory
 
     def _move_to_starting_player(self) -> None:
         """ Iterate through player cycle until starting player is found """

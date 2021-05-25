@@ -1,15 +1,15 @@
 from board_components import PatternLines, FloorLine, Wall
-from game_pieces import import Tile, TileCounter
+from tiles import Tile, TileCounter
 from typing import List
 
 
 class PlayerBoard:
     """
     The player board is bound to a single player. It contains:
-    - the player's point total
-    - the inner-round tile area
-    - the end state tile area
-    - the inner-round minus point area
+    - point total
+    - pattern lines area - rows with 1-5 temporary tile spaces)
+    - the wall - 5x5 tile spaces
+    - the floor line - minus points
     """
     def __init__(self):
         self.point_total = 0

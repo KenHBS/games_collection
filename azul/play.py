@@ -1,9 +1,6 @@
-from playerboard import PlayerBoard
-from tiles import TileCounter, Tile
+from game import TheGame
 
 
 if __name__ == "__main__":
-    player_board = PlayerBoard("sinus")
-    draw_this = TileCounter(Tile(2), 3)
-
-    player_board.add_tile_count(draw_this, 3)
+    participants = ["Jonas", "Hagen", "Paula", "Toffer"]
+    game = TheGame(player_names=participants)

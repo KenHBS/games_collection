@@ -9,7 +9,7 @@ From [ultraboardgames.com](https://www.ultraboardgames.com/azul/game-rules.php):
 ## Game overview
 The components in this repository represent the game setup:
 
-![Game components from ultraboardgames.com](components.jpg)
+![Game components from ultraboardgames.com](img/components.jpg)
 
 - `A`: `PlayerBoard` has four areas: `ScoreTrack`, `PatternLines`, `Wall` and `FloorLine`
 - `B`: `total_points` marker is also an attribute of the `PlayerBoard`
@@ -23,7 +23,7 @@ For the rules of the game, I recommend you check out [ultraboardgames.com](https
 ## Code overview
 The code represents the game components. The further rules of the games govern how they interact with each other. That is perfect for an object oriented coding project!
 
-Check out the relationship between the different components in this diagram: ![Check it out](diagram.png)
+Check out the relationship between the different components in this diagram: ![Check it out](img/diagram.png)
 
 ## How to play
 This code does not come with a frontend. It is a pretty boring terminal game..
